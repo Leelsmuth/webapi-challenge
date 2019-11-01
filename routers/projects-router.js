@@ -47,7 +47,6 @@ router.get("/actions/:id", (req, res) => {
 
 router.post("/", validateProject, (req, res) => {
   const body = req.body;
-  console.log(body);
   projects
     .insert(body)
     .then(success => {
@@ -102,8 +101,9 @@ function validateProjectId(req, res, next) {
   const { id } = req.params;
   projects
     .get(id)
-    .then(projectID => {
-      if (projectID) {
+    .then(project => {
+      if (project) {
+        req.project = project;
         next();
       } else {
         res.status(400).json({ message: "project id not found" });
