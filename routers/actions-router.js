@@ -11,9 +11,6 @@ router.get("/", (req, res) => {
   actions
     .get()
     .then(getActions => {
-      // getprojs
-      // compare projs
-      // return those in both lists
       res.status(200).json(getActions);
     })
     .catch(error => {
