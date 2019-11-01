@@ -85,7 +85,7 @@ router.delete("/:id", validateActionId, (req, res) => {
   actions
     .remove(id)
     .then(count =>
-      res.status(200).json({ message: `${count} action deleted for id ${id}` })
+      res.status(200).json({ message: `action deleted for id ${id}` })
     )
     .catch(error =>
       res.status(500).json({ message: "failed to delete action" })
