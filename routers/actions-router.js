@@ -51,7 +51,7 @@ router.post(
         res.status(200).json(success);
       })
       .catch(error => {
-        res.status(500).json({ message: "failed to add action" });
+        res.status(500).json({ message: "failed to add action" + error });
       });
   }
 );
