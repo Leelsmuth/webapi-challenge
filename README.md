@@ -25,14 +25,37 @@ In this challenge, create a web API around the following resources: `Projects` a
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
 - [ ] Mention two parts of Express that you learned about this week.
+    Ans: Middleware and Routing
 
 - [ ] Describe Middleware?
+    Ans: We can think of middleware as array of functions that get executed in the order they are introduced into the server code.A piece of middleware is a function that hooks into the routing process, performing an arbitrary operation at some point in the chain (depending on what we want it to do).It’s commonly used to edit the request or response objects, or terminate the request before it reaches the route handler code.
 
 - [ ] Describe a Resource?
+    Ans: A resource is our database, basically where we get our data from. we can perform create, read, update and delete methods on them using HTTP verbs such as GET, DELETE, POST and PUT
 
 - [ ] What can the API return to help clients know if a request was successful?
+    Ans: It can return a response with the status code 200 which means ok, or 201 which means created.
+
+    200 (OK)
+    It indicates that the REST API successfully carried out whatever action the client requested, and that no more specific code in the 2xx series is appropriate.
+
+    Unlike the 204 status code, a 200 response should include a response body.The information returned with the response is dependent on the method used in the request, for example:
+
+    GET an entity corresponding to the requested resource is sent in the response;
+    HEAD the entity-header fields corresponding to the requested resource are sent in the response without any message-body;
+    POST an entity describing or containing the result of the action;
+    TRACE an entity containing the request message as received by the end server
+
+    201 (Created)
+    A REST API responds with the 201 status code whenever a resource is created inside a collection. There may also be times when a new resource is created as a result of some controller action, in which case 201 would also be an appropriate response.
+
+    The newly created resource can be referenced by the URI(s) returned in the entity of the response, with the most specific URI for the resource given by a Location header field.
+
+    The origin server MUST create the resource before returning the 201 status code. If the action cannot be carried out immediately, the server SHOULD respond with 202 (Accepted) response instead.
 
 - [ ] How can we partition our application into sub-applications?
+
+    Ans: We can use Express Routing to turn our application into sub-applications. This makes it so we don't have to do everything on a single file and can split our application's structure up depending on the context (one file for userRouter, one for postRouter, etc.).
 
 ## Project Setup
 
